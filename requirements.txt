@@ -1,2 +1,4 @@
 requests==2.11.1
+requests_toolbelt
+requests
 big_letters
