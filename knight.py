@@ -16,28 +16,6 @@ def yahoo(email):
         q='Live yahoo'
         insta(z['email'])
 
-def gmail(email):
-    url_ap =("http://apilayer.net/api/check?access_key="+key+"&email="+email+"&smtp=1&format=1")
-    info = json.loads(requests.get(url_ap).text)
-    global c
-    c=c+1
-    try:
-        if info['smtp_check']==0:
-            with open('gmail_live.txt','a')as f2:
-                f2.write(z['name']+" >> "+z['email']+'\n')
-            system(blue)
-            Beep(3000,100)
-            global q
-            q='Live gmail'
-            insta(z['email'])
-    except KeyError :
-        if c ==251:
-                key=input('\n\n[!]Error key you can check yahoo only if you press enter or\n[+]Enter the new key : \n\n')
-                if len(key)==32:
-                    c=0
-                if key=='':
-                    key=key1
-
 def hotmail(email):
     url_ap =("http://apilayer.net/api/check?access_key="+key+"email="+email+"&smtp=1&format=1")
     info = json.loads(requests.get(url_ap).text)
@@ -128,9 +106,7 @@ for email in emails:
         if 'yahoo' in email:
             yahoo(email)
             print (email+' >> '+q+w+'\n\n')
-        elif 'gmail'in z['email']:
-            gmail(email)
-            print (email+' >> '+q+w+'\n\n')
+    
         elif 'hotmail'in z['email']:
             hotmail(email)
             print (email+' >> '+q+w+'\n\n')
@@ -145,10 +121,6 @@ for email in emails:
 f.close()
 try:
     f1.close()
-except:
-    pass
-try:
-    f2.close()
 except:
     pass
 try:
