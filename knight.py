@@ -89,7 +89,12 @@ system(clear)
 print('\n')
 ban('  knight')
 url= input("\n[+]Drop the list here[+]\n")
-key=input('[+]Enter your key : ')
+while True:
+    key=input('[+]Enter your key : ')
+    if len(key) == 32:
+        break
+    else :
+        key=''
 key1=key
 uuurl=list(url)
 if uuurl[-1]== '\"':
